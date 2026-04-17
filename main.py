@@ -1,21 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-def valor_esperado(X, Px):
-    valor_esperado = 0
-    for i in range(len(X)):
-        valor_esperado += X[i] * Px
-    return valor_esperado
-    
-def variancia(X, Px):
-    # Chamamos a função 'valor_esperado' e guardamos o resultado em 'mu'
-    mu = valor_esperado(X, Px) 
-    
-    var = 0
-    for i in range(len(X)):
-        var += ((X[i] - mu) ** 2) * Px
-    return var
+from functions import valor_esperado, variancia
 
 
 Z = [[1,1], [1,2], [1,3], [1,4], [1,5], [1,6],

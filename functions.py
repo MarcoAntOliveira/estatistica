@@ -4,7 +4,25 @@ from  sympy import integrate
 
 poisson = lambda x, lamb, T: ((e**-lamb*T)*(lamb*T)**x)/factorial(x)
  
-print(poisson(0, 3, 1))
+
+
+def valor_esperado(X, Px):
+    valor_esperado = 0
+    for i in range(len(X)):
+        valor_esperado += X[i] * Px
+        print(f"Valor esperado parcial para X[{i}] = {X[i]}: {X[i] * Px}")
+    return valor_esperado
+    
+def variancia(X, Px):
+    # Chamamos a função 'valor_esperado' e guardamos o resultado em 'mu'
+    mu = valor_esperado(X, Px) 
+    
+    var = 0
+    for i in range(len(X)):
+        var += ((X[i] - mu) ** 2) * Px
+        print(f"Variância parcial para X[{i}] = {X[i]}: {((X[i] - mu) ** 2) * Px}")
+        
+    return var
 
 #variaveis aleatorias discretas
 def perm_rep (x , n):
